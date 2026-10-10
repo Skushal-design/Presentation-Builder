@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#06080b">
+<title>Render Pass Breakdown</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app" id="app">
+  <div class="intro" id="intro">
+    <div class="introCard">
+      <div class="introEyebrow">RENDER PASS BREAKDOWN</div>
+      <div class="introTitle" id="introTitle">Project</div>
+      <div class="introSub">Lighting · Shading · Look Development</div>
+      <div class="introBar"><div class="introBarFill"></div></div>
+    </div>
+  </div>
+
+  <header class="topbar" id="topbar">
+    <div class="brand">
+      <div class="eyebrow">RENDER PASS BREAKDOWN</div>
+      <h1 id="projectTitle">Render Pass Breakdown</h1>
+    </div>
+    <div class="controls" role="toolbar" aria-label="Playback controls">
+      <button id="prev" title="Previous (←)" aria-label="Previous pass">‹</button>
+      <button id="play" class="primary" title="Play/Pause (Space)" aria-label="Play or pause">PAUSE</button>
+      <button id="next" title="Next (→)" aria-label="Next pass">›</button>
+      <button id="restart" title="Restart (Home)" aria-label="Restart">↻</button>
+      <span class="ctrlSep" aria-hidden="true"></span>
+      <button id="ab" title="A/B previous (hold B)" aria-label="A/B compare">A/B</button>
+      <button id="fs" title="Fullscreen (F)" aria-label="Fullscreen">⛶</button>
+      <button id="voBtn" type="button" title="Voice-over (V)">VO</button>
+      <button id="theme" title="Theme (T)" aria-label="Toggle theme">◐</button>
+      <button id="help" title="Shortcuts (?)" aria-label="Show keyboard shortcuts">?</button>
+    </div>
+  </header>
+
+  <main class="stage-wrap">
+    <div class="viewer">
+      <!-- IMAGE ONLY — wipe / fade / slide transitions stay inside here -->
+      <div class="stage" id="stage">
+        <div class="vignette" id="vignette"></div>
+        <div class="layer base" id="layerBase"><img id="imgBase" alt=""></div>
+        <div class="layer over" id="layerOver"><img id="imgOver" alt=""></div>
+        <div class="wipeEdge" id="wipeEdge"></div>
+        <img class="logoBurn" id="logoBurn" alt="" hidden>
+        <div class="abFlash" id="abFlash" hidden><img id="abImg" alt=""></div>
+        <div class="stageLoader" id="stageLoader" hidden>
+          <div class="spinner"></div>
+          <span>Loading pass…</span>
+        </div>
+        <div class="stageError" id="stageError" hidden>
+          <div class="errIcon">⚠</div>
+          <div class="errMsg" id="errMsg">Image missing</div>
+        </div>
+      </div>
+
+      <!-- TEXT / META — separate from image; simple fade, never wiped -->
+      <div class="captionBar" id="captionBar">
+        <div class="captionInner">
+          <div class="titleCounter" id="counter">01 / 01</div>
+          <h2 class="titleName" id="passName">Pass</h2>
+          <div class="titleTags">
+            <span class="pill" id="mode">FINAL BEAUTY</span>
+            <span class="pill blend" id="blendTag">NORMAL</span>
+            <span class="pill opacity" id="opacityTag" style="display:none">OPACITY 100%</span>
+          </div>
+        </div>
+        <div class="passBar" id="passBar">
+          <div class="progress"><div id="progressBar"></div></div>
+          <div class="passBarMeta">
+            <span class="status" id="status"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <section class="timeline" id="timeline" role="navigation" aria-label="Pass timeline"></section>
+  <div class="hint" id="hint">Space play · ← → · B A/B · F fullscreen · T theme · P present · V voice · M music · ? help · 1–9</div>
+</div>
+
+<!-- Keyboard shortcuts overlay -->
+<div class="helpOverlay" id="helpOverlay" hidden>
+  <div class="helpCard">
+    <div class="helpHead">
+      <h3>Keyboard shortcuts</h3>
+      <button id="helpClose" class="helpClose" title="Close">✕</button>
+    </div>
+    <div class="helpGrid">
+      <div class="helpKey">Space</div><div>Play / Pause</div>
+      <div class="helpKey">← →</div><div>Previous / Next pass</div>
+      <div class="helpKey">Home</div><div>Restart from first pass</div>
+      <div class="helpKey">1 – 9</div><div>Jump to pass</div>
+      <div class="helpKey">B</div><div>Hold for A/B previous</div>
+      <div class="helpKey">F</div><div>Fullscreen</div>
+      <div class="helpKey">T</div><div>Toggle light / dark theme</div>
+      <div class="helpKey">P</div><div>Presentation mode</div>
+      <div class="helpKey">?</div><div>This help panel</div>
+      <div class="helpKey">Esc</div><div>Exit fullscreen / help</div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var params = new URLSearchParams(location.search || "");
+  var project = params.get("project");
+  var dataSrc = project ? ("projects/" + encodeURIComponent(project) + "/data.js") : "data.js";
+  var s = document.createElement("script");
+  s.src = dataSrc;
+  s.onerror = function () {
+    // fallback to global data.js
+    var f = document.createElement("script");
+    f.src = "data.js";
+    f.onload = function () {
+      var a = document.createElement("script");
+      a.src = "app.js";
+      document.body.appendChild(a);
+    };
+    document.body.appendChild(f);
+  };
+  s.onload = function () {
+    var a = document.createElement("script");
+    a.src = "app.js";
+    document.body.appendChild(a);
+  };
+  document.body.appendChild(s);
+})();
+</script>
+</body>
+</html>

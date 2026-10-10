@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 01 · Artist Showcase 2026</title>
+    <link rel="stylesheet" href="../css/style.css?v=20260924i">
+</head>
+
+<!-- data-project="0" → maps to PROJECTS[0] in js/data.js -->
+<body class="theme-dark" data-project="0">
+
+<div id="app">
+
+    <!-- =====================================================
+         🔒 LOCKED SHELL — DO NOT EDIT
+    ====================================================== -->
+
+    <header class="topbar">
+        <div class="topbar-left">
+            <button class="sidebar-toggle-btn" onclick="toggleSidebar()" title="Toggle sidebar (S)">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+
+        <div class="topbar-center">
+            <div class="brand">ARTIST SHOWCASE · 2026</div>
+        </div>
+
+        <div class="topbar-right">
+            <button class="theme-toggle-btn" id="themeToggleBtn" onclick="toggleTheme()" title="Toggle theme (T)">
+                <span class="theme-icon">☀</span>
+            </button>
+            <div class="page-counter">
+                <strong id="pageCurrent">01</strong>
+                /
+                <span id="pageTotal">03</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="layout">
+
+        <aside class="sidebar collapsed" id="sidebar">
+            <div class="sidebar-header">
+                <span class="sidebar-title">PROJECTS</span>
+            </div>
+            <nav class="sidebar-nav" id="sidebarNav"></nav>
+            <div class="sidebar-footer">
+                <div class="artist-info-mini">
+                    <div class="artist-name-mini" id="sidebarArtistName"></div>
+                    <div class="artist-role-mini" id="sidebarArtistRole"></div>
+                </div>
+                <a class="back-home-btn" href="../index.html">← HOME</a>
+            </div>
+        </aside>
+
+        <main class="content">
+            <div class="project-area" id="projectArea">
+
+    <!-- =====================================================
+         ✏️ EDITABLE CONTENT — auto-filled from PROJECTS[0]
+         Only edit if you want to change structure, not data.
+         All text/images/videos come from js/data.js
+    ====================================================== -->
+
+                <!-- STICKY PROJECT TITLE (always visible) -->
+                <div class="project-title-row">
+                    <div class="section-label" id="projectNumber"></div>
+                    <div class="project-title-stack">
+                        <h2 class="project-title" id="projectTitle"></h2>
+                        <div class="project-artist" id="projectArtist"></div>
+                        <div id="projectStatus" class="tag-pill" style="display:none"></div>
+                        <div id="projectTags" class="project-tags"></div>
+                    </div>
+                    <div class="project-category" id="projectCategory"></div>
+                </div>
+
+                <div class="project-grid">
+
+                    <div class="project-description">
+                        <div class="section-label">PROJECT BREAKDOWN</div>
+                        <p class="description-text" id="projectDescription"></p>
+
+                        <div class="details-grid" id="projectDetails"></div>
+
+                        <div class="section-label" style="margin-top:25px">SOFTWARE</div>
+                        <div class="tools" id="projectTools"></div>
+
+                        <div class="breakdown-section">
+                            <div class="section-label">MY CONTRIBUTION</div>
+                            <div class="breakdown-grid" id="contributionGrid"></div>
+                        </div>
+
+                        <div class="breakdown-section">
+                            <div class="section-label">PROJECT STILLS</div>
+                            <div class="gallery" id="gallery"></div>
+                        </div>
+                    </div>
+
+                    <div class="media-area">
+                        <div class="video-source-bar" id="videoSourceBar"></div>
+                        <div class="video-wrapper">
+                            <div class="media-label">PROJECT VIDEO</div>
+                            <video id="projectVideo" preload="metadata" playsinline>
+                                Your browser does not support video.
+                            </video>
+                    <div id="chapterTimeline" class="chapter-timeline"></div>
+                        </div>
+
+                        <div class="video-controls">
+                            <button class="control-btn" onclick="togglePlay()">▶ / ❚❚</button>
+                            <button class="control-btn" onclick="restartVideo()">RESTART</button>
+                            <button class="control-btn" onclick="toggleMute()">MUTE</button>
+                            <div class="progress" id="progress">
+                                <div class="progress-bar" id="progressBar"></div>
+                            </div>
+                            <button class="control-btn" onclick="fullscreenVideo()">FULL</button>
+                        </div>
+
+                        <div class="video-extra-controls">
+                            <span class="video-extra-label">SPEED</span>
+                            <button class="control-btn" data-rate="0.5" type="button">0.5×</button>
+                            <button class="control-btn active" data-rate="1" type="button">1×</button>
+                            <button class="control-btn" data-rate="2" type="button">2×</button>
+                            <button class="control-btn" data-rate="2.5" type="button">2.5×</button>
+                            <span class="video-extra-sep"></span>
+                            <span class="video-extra-label">CLIP</span>
+                            <button class="control-btn active" data-clip="full" type="button">FULL</button>
+                            <button class="control-btn" data-clip="15" type="button">15s</button>
+                            <button class="control-btn" data-clip="30" type="button">30s</button>
+                            <button class="control-btn" data-clip="45" type="button">45s</button>
+                        </div>
+
+                        <div class="section-label">BREAKDOWN CHAPTERS</div>
+                        <div class="chapters" id="chapters"></div>
+
+                        <div class="media-tabs" id="mediaTabs">
+                            <button type="button" class="media-tab-btn active" data-media-tab="compare">BEFORE / AFTER</button>
+                            <button type="button" class="media-tab-btn" data-media-tab="passes">RENDER PASSES</button>
+                            <button type="button" class="media-tab-btn" data-media-tab="breakdown">PASS BREAKDOWN</button>
+                        </div>
+
+                        <div class="media-tab-panel active" id="mediaPanelCompare">
+                            <div class="compare">
+                                <img id="beforeImage" src="" alt="Before">
+                                <img id="afterImage" class="after-image" src="" alt="After">
+                                <div class="compare-line" id="compareLine"></div>
+                                <div class="compare-label before-label" id="beforeLabel">BEFORE</div>
+                                <div class="compare-label after-label" id="afterLabel">FINAL</div>
+                                <input type="range" min="0" max="100" value="50" class="compare-slider" id="compareSlider">
+                            </div>
+                            <div class="compare-stages" id="compareStages" style="display:none"></div>
+                            <div class="compare-pair-nav" id="comparePairNav" style="display:none">
+                                <button type="button" id="comparePrevPair">‹ Prev step</button>
+                                <span class="compare-stage-hint" id="comparePairHint"></span>
+                                <button type="button" id="compareNextPair">Next step ›</button>
+                            </div>
+                        </div>
+
+                        <div class="media-tab-panel" id="mediaPanelPasses">
+                            <button type="button" class="passes-story-btn" id="passesStoryBtn">Story</button>
+                <div class="passes-split" id="passesCarousel">
+                                <div class="passes-split-layer is-base" id="passesBase">
+                                    <img id="passesBaseImg" src="" alt="">
+                                </div>
+                                <div class="passes-split-layer is-reveal diag" id="passesReveal">
+                                    <img id="passesRevealImg" src="" alt="">
+                                </div>
+                                <div class="passes-split-bar">
+                                    <div class="passes-carousel-name" id="passesCarouselName">—</div>
+                                    <div class="passes-carousel-nav">
+                                        <button type="button" class="passes-carousel-btn" id="passesPrev" title="Previous">‹</button>
+                                        <div class="passes-carousel-dots" id="passesCarouselDots"></div>
+                                        <button type="button" class="passes-carousel-btn" id="passesNext" title="Next">›</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Full passes grid (below project content) -->
+                                        <div class="media-tab-panel" id="mediaPanelBreakdown">
+                            <div class="breakdown-viewer-card">
+                                <div class="section-label">PASS BREAKDOWN VIEWER</div>
+                                <p class="breakdown-viewer-note">
+                                    Animated pass breakdown for this project. Use the Studio editor to sync passes, then Save project viewer.
+                                </p>
+                                <a class="breakdown-viewer-btn" id="breakdownViewerLink"
+                                   href="../../viewer/index.html" target="_blank" rel="noopener">
+                                    OPEN IN NEW TAB
+                                </a>
+                                <iframe id="breakdownViewerFrame" class="breakdown-viewer-frame"
+                                    title="Pass Breakdown" loading="lazy"
+                                    allowfullscreen></iframe>
+                            </div>
+                        </div>
+
+                <section class="passes-section" id="passesSection" style="display:none">
+                    <div class="section-label">RENDER PASSES</div>
+                    <div class="passes-grid" id="passesGrid"></div>
+                </section>
+
+    <!-- =====================================================
+         ✏️ EDITABLE CONTENT — END
+    ====================================================== -->
+
+            </div>
+        </main>
+    </div>
+
+    <!-- =====================================================
+         🔒 LOCKED SHELL — DO NOT EDIT
+    ====================================================== -->
+
+    <footer class="bottom-bar">
+        <a class="bottom-button" id="prevBtn" href="#">← PREVIOUS</a>
+        <div class="help-text">
+            ← → NAVIGATE · SPACE PLAY · F FULLSCREEN · H HELP · S SIDEBAR · T THEME
+        </div>
+        <a class="bottom-button" id="nextBtn" href="#">NEXT →</a>
+    </footer>
+
+    <div class="help-panel" id="helpPanel">
+        <div class="help-box">
+            <h2>PRESENTATION CONTROLS</h2>
+            <div class="shortcut"><span>Next project</span><span class="key">→</span></div>
+            <div class="shortcut"><span>Previous project</span><span class="key">←</span></div>
+            <div class="shortcut"><span>Play / Pause</span><span class="key">SPACE</span></div>
+            <div class="shortcut"><span>Restart video</span><span class="key">R</span></div>
+            <div class="shortcut"><span>Fullscreen</span><span class="key">F</span></div>
+            <div class="shortcut"><span>Mute</span><span class="key">M</span></div>
+            <div class="shortcut"><span>Toggle sidebar</span><span class="key">S</span></div>
+            <div class="shortcut"><span>Toggle theme</span><span class="key">T</span></div>
+            <div class="shortcut"><span>Close help</span><span class="key">H / ESC</span></div>
+        </div>
+    </div>
+
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <div class="lightbox-close" onclick="closeLightbox()">×</div>
+        <button class="lightbox-nav lightbox-prev" type="button" onclick="lightboxPrev(event)" title="Previous">‹</button>
+        <img id="lightboxImage" src="" alt="" onclick="event.stopPropagation()">
+        <button class="lightbox-nav lightbox-next" type="button" onclick="lightboxNext(event)" title="Next">›</button>
+        <div class="lightbox-caption" id="lightboxCaption" onclick="event.stopPropagation()"></div>
+        <div class="lightbox-counter" id="lightboxCounter"></div>
+    </div>
+
+    <div class="toast" id="toast">READY</div>
+
+</div>
+
+<!-- =====================================================
+     📜 BOOT SCRIPTS — DO NOT EDIT
+====================================================== -->
+<script src="../js/data.js?v=20260924i"></script>
+<script src="../js/main.js?v=20260924i"></script>
+<script src="../js/features.js?v=20260929c"></script>
+<script src="../js/project.js?v=20260924i"></script>
+</body>
+</html>

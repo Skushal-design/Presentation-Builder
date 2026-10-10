@@ -1,0 +1,444 @@
+/* =========================================================
+   ARTIST + PROJECT DATA
+   This file is JSON-compatible. Edited by Python app.
+   Auto-repaired on load if non-strict JS was present.
+========================================================= */
+
+const ARTIST = {
+    "name": "KUSHAL SHARMA",
+    "role": "LIGHTING · SHADING · COMPOSITING"
+};
+
+
+/* =========================================================
+   HOME SCREEN — editable from Python editor
+========================================================= */
+const HOME = {
+    "eyebrow": "COMPANY CREATIVE SHOWCASE",
+    "heading": "SHADING DEPARTMENT\nSHOWCASE",
+    "mediaType": "",
+    "media": ""
+};
+
+/* =========================================================
+   END SCREEN — editable from Python editor
+========================================================= */
+const END = {
+    "eyebrow": "PRESENTATION COMPLETE",
+    "heading": "THANK YOU",
+    "note": "",
+    "mediaType": "",
+    "media": ""
+};
+
+/* =========================================================
+   CUSTOM FONT — empty url = system default
+   family examples: "Segoe UI, Arial, sans-serif"
+   url: Google Fonts CSS or local .woff2 path
+========================================================= */
+const FONT = {
+    "family": "Segoe UI, Arial, Helvetica, sans-serif",
+    "url": ""
+};
+
+
+/* =========================================================
+   HEADER — top bar brand text
+========================================================= */
+const HEADER = {
+    "brand": "ARTIST SHOWCASE · 2026"
+};
+
+/* =========================================================
+   THANKS SCREEN — optional slide after HOME
+   Set "enabled": true to show, false to hide (skip to projects)
+========================================================= */
+const THANKS = {
+    "enabled": true,
+    "eyebrow": "WITH GRATITUDE",
+    "heading": "THANK YOU",
+    "sub": "TO EVERY DEPARTMENT THAT MADE THIS POSSIBLE",
+    "note": "This showcase stands on the work of every artist across the pipeline.",
+    "departments": [
+        {
+            "name": "MODELLING",
+            "text": "Thank you to the Modelling team for building solid foundations — precise geometry, clean topology, and assets that lighting and shading could bring to life."
+        },
+        {
+            "name": "TEXTURING",
+            "text": "Thank you to the Texturing team for surfaces with depth and story — materials that respond truthfully under light and give every scene its tactile quality."
+        },
+        {
+            "name": "RIGGING",
+            "text": "Thank you to the Rigging team for systems that move with intention — controls and deformations that let animation perform without fighting the toolset."
+        },
+        {
+            "name": "ANIMATION",
+            "text": "Thank you to the Animation team for performance and timing — motion that carries emotion, clarity, and the final beat of every sequence."
+        }
+    ]
+};
+
+const PROJECTS = [
+    {
+        "id": 0,
+        "file": "project-01.html",
+        "title": "775G Caterpillar",
+        "category": "ENVIRONMENT / LIGHTING",
+        "description": "Environment Modeling | Shading | Lighting | Look Development | Final Compositing\nContributed to the project from environment modeling through final video delivery. The industrial environment was modeled and prepared in 3ds Max, followed by material development, shading, lighting, and look development in Unreal Engine.\nFocused on creating realistic material response, surface variation, reflections, roughness, shadows, lighting interaction, and atmospheric depth to achieve the final visual look.\nThe final renders were brought into DaVinci Resolve for editing, color grading, finishing, and final video output, completing the visual presentation.",
+        "video": "assets/videos/775G_Caterpillar_v001_t001.mp4",
+        "details": {
+            "ROLE": "Shading and Lighting Artist",
+            "TASK": "Lighting + Shading + Modeling",
+            "OUTPUT": "Final Render"
+        },
+        "tools": [
+            "Blender",
+            "3ds Max",
+            "Unreal Engine",
+            "Davinci"
+        ],
+        "contributions": [
+            [
+                "01",
+                "LIGHTING"
+            ],
+            [
+                "02",
+                "MATERIALS"
+            ],
+            [
+                "03",
+                "FINAL RENDER"
+            ],
+            [
+                "04",
+                "COMPOSITING"
+            ]
+        ],
+        "chapters": [
+            {
+                "name": "FINAL RESULT",
+                "time": 0.0
+            },
+            {
+                "name": "LIGHTING",
+                "time": 15.0
+            },
+            {
+                "name": "MATERIALS",
+                "time": 30.0
+            },
+            {
+                "name": "BREAKDOWN",
+                "time": 45.0
+            }
+        ],
+        "gallery": [
+            "assets/images/project-01/xray_03.png",
+            "assets/images/project-01/xray_05.png",
+            "assets/images/project-01/775G_Cat_v001_t001.png",
+            "assets/images/project-01/775G_Cat_v001_t003.png"
+        ],
+        "before": "assets/images/project-01/775G_Before.png",
+        "after": "assets/images/project-01/775G_After.png",
+        "poster": "assets/images/project-01/775G_thumbnail.png"
+    },
+    {
+        "id": 1,
+        "file": "project-02.html",
+        "title": "HysterRs45",
+        "category": "ENVIRONMENT / LIGHTING",
+        "description": "This project focused on developing the final visual look of the environment. My contribution included lighting, shading and look development, with attention to material response, atmosphere and final presentation.",
+        "video": "assets/videos/HysterRs45-31ch_movie_v001_t004.mp4",
+        "details": {
+            "ROLE": "Shading and Lighting Artist",
+            "TASK": "Lighting + Shading",
+            "OUTPUT": "Final Render"
+        },
+        "tools": [
+            "3ds Max",
+            "Unreal Engine",
+            "Davinci"
+        ],
+        "contributions": [
+            [
+                "01",
+                "LIGHTING"
+            ],
+            [
+                "02",
+                "MATERIALS"
+            ],
+            [
+                "03",
+                "FINAL RENDER"
+            ],
+            [
+                "04",
+                "COMPOSITING"
+            ]
+        ],
+        "chapters": [
+            {
+                "name": "FINAL",
+                "time": 0.0
+            },
+            {
+                "name": "MATERIAL",
+                "time": 20.0
+            }
+        ],
+        "gallery": [
+            "assets/images/project-02/HighresScreenshot00001.png",
+            "assets/images/project-02/HighresScreenshot00002.png"
+        ],
+        "before": "assets/images/project-02/Hyster_Before.png",
+        "after": "assets/images/project-02/Hyster_After.png",
+        "poster": "assets/images/project-02/Hyster_Thumbnail.png"
+    },
+    {
+        "id": 2,
+        "file": "project-03.html",
+        "title": "Copado Office",
+        "category": "Interior Visulisation",
+        "description": "Interior Visualisation | Lighting | Shading | Look Development\nDeveloped materials and lighting for this modern interior in Unreal Engine. Focused on realistic material response, roughness, reflections, and the balance between warm ceiling lights and the cool cyan glow of the large glass panels. Soft shadows and atmospheric depth create a calm, inviting final look.",
+        "video": "assets/videos/Copado_Office_Japan_tour.mp4",
+        "details": {
+            "ROLE": "Shading and Lighting",
+            "TASK": "Shading + Lighting + Rendering",
+            "OUTPUT": "Video Sequence"
+        },
+        "tools": [
+            "3ds Max",
+            "Unreal",
+            "Davinci"
+        ],
+        "contributions": [
+            [
+                "01",
+                "Material Creation"
+            ],
+            [
+                "02",
+                "Camera Animation"
+            ],
+            [
+                "03",
+                "lighting"
+            ],
+            [
+                "04",
+                "Rendering"
+            ]
+        ],
+        "chapters": [
+            {
+                "name": "FINAL",
+                "time": 0.0
+            },
+            {
+                "name": "LIGHTING",
+                "time": 25.0
+            }
+        ],
+        "gallery": [
+            "assets/images/project-03/001.png",
+            "assets/images/project-03/002.png",
+            "assets/images/project-03/003.png",
+            "assets/images/project-03/004.png",
+            "assets/images/project-03/005.png"
+        ],
+        "before": "assets/images/project-03/copado_Before.png",
+        "after": "assets/images/project-03/copado_After.png",
+        "poster": "assets/images/project-03/copado_After.png"
+    },
+    {
+        "id": 3,
+        "file": "project-04.html",
+        "title": "Environment Design",
+        "category": "Cinematic",
+        "description": "Cinematic Environment | Environment Design | Unreal Engine 5.7\nBuilt this outdoor environment in Unreal Engine 5.7. Used PCG for tree and vegetation placement, then manually painted the grass and road textures for better control. Assembled the landscape, cabin, jeep, and overall layout to create a complete cinematic scene.",
+        "video": "assets/videos/ENV_001.mp4",
+        "poster": "assets/images/project-04/Env_ThumbNail.png",
+        "details": {
+            "ROLE": "Lighting + Rendering + Compile",
+            "TASK": "Environment Design",
+            "OUTPUT": "Final Render"
+        },
+        "tools": [
+            "Unreal",
+            "Davinci"
+        ],
+        "contributions": [
+            [
+                "01",
+                "Environment Design"
+            ],
+            [
+                "02",
+                "Lighting"
+            ],
+            [
+                "03",
+                "Jeep Animation"
+            ],
+            [
+                "04",
+                "Render & Compile"
+            ]
+        ],
+        "chapters": [],
+        "gallery": [
+            "assets/images/project-04/HighresScreenshot00007.png",
+            "assets/images/project-04/HighresScreenshot00008.png",
+            "assets/images/project-04/HighresScreenshot00009.png",
+            "assets/images/project-04/HighresScreenshot00010.png"
+        ],
+        "before": "assets/images/project-04/Env_Before.png",
+        "after": "assets/images/project-04/Env_After.png"
+    },
+    {
+        "id": 4,
+        "file": "project-05.html",
+        "title": "Aster Sapphire Truck",
+        "category": "Training Video",
+        "description": "",
+        "video": "assets/videos/Aster_Optimised.mp4",
+        "poster": "assets/images/project-05/Aster_After.png",
+        "details": {
+            "ROLE": "Lighting + Rendering + Compile",
+            "TASK": "Environment Design",
+            "OUTPUT": "Final Render"
+        },
+        "tools": [
+            "3ds Max",
+            "Unreal",
+            "Davinci"
+        ],
+        "contributions": [
+            [
+                "01",
+                "Environment Design"
+            ],
+            [
+                "02",
+                "Lighting"
+            ],
+            [
+                "03",
+                "Animation Fix With Audio"
+            ],
+            [
+                "04",
+                "Render & Compile"
+            ]
+        ],
+        "chapters": [],
+        "gallery": [
+            "assets/images/project-05/Aster_001_t005_1208.png",
+            "assets/images/project-05/Aster_001_t005_1365.png"
+        ],
+        "before": "assets/images/project-05/Aster_Before.png",
+        "after": "assets/images/project-05/Aster_After.png"
+    },
+    {
+        "id": 5,
+        "file": "project-06.html",
+        "title": "EGT",
+        "category": "Simulation",
+        "description": "Conventional drilling faces major challenges including high equipment costs, frequent tripping of the drill string (causing non-productive time), and wellbore instability or lost circulation. \nCasing while drilling (CwD) addresses these by simultaneously drilling and casing the well using the casing itself. This review examines the CwD method, its practical applications, and its advantages over conventional drilling, showing that CwD delivers significantly better results.",
+        "video": "assets/videos/EGT_video.mp4",
+        "poster": "assets/images/project-06/EGT_After.png",
+        "details": {
+            "ROLE": "Simulation",
+            "TASK": "Particle Flow Simulate",
+            "OUTPUT": "Particle Flow Animation On SketchFab"
+        },
+        "tools": [
+            "Blender",
+            "Sketchfab"
+        ],
+        "contributions": [
+            [
+                "01",
+                "Particle Simulation"
+            ],
+            [
+                "02",
+                "Make it work in sketchfab"
+            ]
+        ],
+        "chapters": [],
+        "gallery": [
+            "assets/images/project-06/Collision.png",
+            "assets/images/project-06/Emitter.png",
+            "assets/images/project-06/Kill.png",
+            "assets/images/project-06/Simulation.png"
+        ],
+        "before": "assets/images/project-06/EGT_Before.png",
+        "after": "assets/images/project-06/EGT_After.png"
+    },
+    {
+        "id": 6,
+        "file": "project-07.html",
+        "title": "GTI_NJNG",
+        "category": "Simulation",
+        "description": "3D Animated Training Model\nBlowdown and Nitrogen Purging of a Natural Gas Take Station Pipe Segment\n\nPurpose\nDevelop a high-quality interactive 3D training model that demonstrates the proper sequence for isolating, blowing down, and purging a natural gas pipeline segment at a regulator/take station.",
+        "video": "assets/videos/GTI_NJNG.mp4",
+        "poster": "assets/images/project-07/NJNG_After.png",
+        "details": {
+            "ROLE": "Simulation",
+            "TASK": "Particle Flow Simulate",
+            "OUTPUT": "Particle Flow Animation On SketchFab"
+        },
+        "tools": [
+            "Blender",
+            "Sketchfab"
+        ],
+        "contributions": [
+            [
+                "01",
+                "Particle Simulation"
+            ],
+            [
+                "02",
+                "Make it work in sketchfab"
+            ]
+        ],
+        "chapters": [],
+        "gallery": [
+            "assets/images/project-07/NJNG_Before.png",
+            "assets/images/project-07/Nodes.png",
+            "assets/images/project-07/Nodes_01.png",
+            "assets/images/project-07/Parameter.png"
+        ],
+        "before": "assets/images/project-07/NJNG_Before.png",
+        "after": "assets/images/project-07/NJNG_After.png"
+    }
+];
+
+/* =========================================================
+   PATHS — resolve asset URLs from any page location
+========================================================= */
+
+
+/* =========================================================
+   SHOWCASE SETTINGS — presentation, audio, transitions
+========================================================= */
+const SETTINGS = {
+    "transition": "fade",
+    "autoAdvanceSec": 0,
+    "audioSrc": "",
+    "audioVolume": 0.25,
+    "followSystemTheme": false,
+    "clientMode": false,
+    "homeThumbnails": true,
+    "analytics": true
+};
+
+const PATHS = {
+    assetBase: window.location.pathname.includes('/projects/')
+        ? '../'
+        : ''
+};

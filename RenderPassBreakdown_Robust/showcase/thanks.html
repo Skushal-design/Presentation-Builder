@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You · Artist Showcase 2026</title>
+    <link rel="stylesheet" href="css/style.css?v=20260924i">
+</head>
+
+<body class="theme-dark" data-page="thanks">
+
+<div id="app">
+
+    <header class="topbar">
+        <div class="topbar-left">
+            <button class="sidebar-toggle-btn" onclick="toggleSidebar()" title="Toggle sidebar (S)">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+        <div class="topbar-center">
+            <div class="brand">ARTIST SHOWCASE · 2026</div>
+        </div>
+        <div class="topbar-right">
+            <button class="theme-toggle-btn" id="themeToggleBtn" onclick="toggleTheme()" title="Toggle theme (T)">
+                <span class="theme-icon">☀</span>
+            </button>
+        </div>
+    </header>
+
+    <div class="layout">
+        <aside class="sidebar collapsed" id="sidebar">
+            <div class="sidebar-header">
+                <span class="sidebar-title">PROJECTS</span>
+            </div>
+            <nav class="sidebar-nav" id="sidebarNav"></nav>
+            <div class="sidebar-footer">
+                <div class="artist-info-mini">
+                    <div class="artist-name-mini" id="sidebarArtistName"></div>
+                    <div class="artist-role-mini" id="sidebarArtistRole"></div>
+                </div>
+                <a class="back-home-btn" href="index.html">← HOME</a>
+            </div>
+        </aside>
+
+        <main class="content">
+            <section class="thanks-screen" id="thanksScreen">
+                <div class="eyebrow" id="thanksEyebrow">WITH GRATITUDE</div>
+                <h1 class="thanks-heading" id="thanksHeading">THANK YOU</h1>
+                <p class="thanks-sub" id="thanksSub">TO EVERY DEPARTMENT THAT MADE THIS POSSIBLE</p>
+                <p class="thanks-note" id="thanksNote"></p>
+                <div class="thanks-grid" id="thanksGrid"></div>
+                <div class="thanks-actions">
+                    <a class="end-btn" href="index.html">← HOME</a>
+                    <a class="end-btn end-btn-primary" id="thanksContinueBtn" href="#">CONTINUE →</a>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer class="bottom-bar">
+        <a class="bottom-button" href="index.html">← HOME</a>
+        <div class="help-text">← HOME · → CONTINUE · S SIDEBAR · T THEME</div>
+        <a class="bottom-button" id="thanksNextBtn" href="#">CONTINUE →</a>
+    </footer>
+
+    <div class="toast" id="toast">READY</div>
+</div>
+
+<script src="js/data.js?v=20260924i"></script>
+<script src="js/features.js?v=20260929c"></script>
+<script src="js/main.js?v=20260924i"></script>
+<script>
+(function () {
+    const thanks = (typeof THANKS !== 'undefined') ? THANKS : null;
+    if (thanks && thanks.enabled === false) {
+        const first = (typeof PROJECTS !== 'undefined' && PROJECTS.length)
+            ? ('projects/' + PROJECTS[0].file)
+            : 'index.html';
+        window.location.replace(first);
+        return;
+    }
+
+    const firstProjectHref = (typeof PROJECTS !== 'undefined' && PROJECTS.length)
+        ? ('projects/' + PROJECTS[0].file)
+        : 'index.html';
+
+    const continueBtn = document.getElementById('thanksContinueBtn');
+    const nextBtn = document.getElementById('thanksNextBtn');
+    if (continueBtn) continueBtn.href = firstProjectHref;
+    if (nextBtn) nextBtn.href = firstProjectHref;
+
+    if (thanks) {
+        const set = (id, val) => {
+            const el = document.getElementById(id);
+            if (el && val != null) el.textContent = val;
+        };
+        set('thanksEyebrow', thanks.eyebrow);
+        set('thanksHeading', thanks.heading);
+        set('thanksSub', thanks.sub);
+        set('thanksNote', thanks.note);
+
+        const grid = document.getElementById('thanksGrid');
+        if (grid && Array.isArray(thanks.departments)) {
+            grid.innerHTML = '';
+            thanks.departments.forEach((d) => {
+                const card = document.createElement('div');
+                card.className = 'thanks-card';
+                card.innerHTML =
+                    '<div class="thanks-dept">' + (d.name || '') + '</div>' +
+                    '<p class="thanks-dept-text">' + (d.text || '') + '</p>';
+                grid.appendChild(card);
+            });
+        }
+    }
+
+    document.addEventListener('keydown', (e) => {
+        const tag = (e.target && e.target.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        if (e.key === 'ArrowRight') window.location.href = firstProjectHref;
+        if (e.key === 'ArrowLeft' || e.key === 'Home') window.location.href = 'index.html';
+    });
+})();
+</script>
+</body>
+</html>

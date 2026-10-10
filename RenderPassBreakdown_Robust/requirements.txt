@@ -1,0 +1,7 @@
+# Render Pass Studio — all dependencies (one install)
+PySide6>=6.6
+numpy>=1.26
+Pillow>=10.0
+imageio>=2.34
+imageio-ffmpeg>=0.5.1
+OpenEXR>=3.2
